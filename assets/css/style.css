@@ -2,6 +2,11 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+table#user-list th,
+table#user-list td {
+    vertical-align: middle;
+}
+
 table#user-list tr th:first-child{
     width: 3%;
 }
