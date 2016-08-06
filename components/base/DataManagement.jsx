@@ -3,6 +3,7 @@ import {objectValues, cloneObject} from '../../lib/helpers.js'
 
 
 export class DataManagementList extends React.Component {
+
     constructor() {
         super();
 
@@ -57,36 +58,8 @@ export class DataManagementList extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({
-            items: [
-                {
-                    "first_name": "Daniel",
-                    "id": 2,
-                    "is_admin": false,
-                    "is_contractor": true,
-                    "is_creator": true,
-                    "last_name": "Zawłocki",
-                    "login": "danzaw"
-                },
-                {
-                    "first_name": "Przemek",
-                    "id": 3,
-                    "is_admin": true,
-                    "is_contractor": true,
-                    "is_creator": false,
-                    "last_name": "Ociepa",
-                    "login": "przoci"
-                },
-                {
-                    "first_name": "Daniel",
-                    "id": 1,
-                    "is_admin": true,
-                    "is_contractor": true,
-                    "is_creator": true,
-                    "last_name": "Zawłocki",
-                    "login": "admin"
-                }
-            ]
+        this.props.fetchData.then((response) => {
+            this.setState({items: response.data});
         });
     }
 

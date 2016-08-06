@@ -4,7 +4,7 @@ import {DataManagementList, DataManagementItem} from './DataManagement.jsx';
 import {objectValues} from '../../lib/helpers.js'
 
 describe('DataManagementList', function() {
-    let htmlId, columns, list, mockItems;
+    let htmlId, columns, list, mockItems, mockFetch;
 
     beforeEach(function() {
         htmlId = 'my-list';
@@ -14,10 +14,6 @@ describe('DataManagementList', function() {
             { headerColumnName: 'name', dataAttributeName: 'name', inputType: 'text'},
             { headerColumnName: 'admin', dataAttributeName: 'admin', inputType: 'checkbox'},
         ];
-
-        list = ReactTestUtils.renderIntoDocument(
-            <DataManagementList htmlId={htmlId} columns={columns}/>
-        );
 
         mockItems = [
             {
@@ -39,6 +35,14 @@ describe('DataManagementList', function() {
                 "login": "przoci"
             },
         ];
+
+        mockFetch = {
+            then: () => {}
+        };
+
+        list = ReactTestUtils.renderIntoDocument(
+            <DataManagementList htmlId={htmlId} columns={columns} fetchData={mockFetch}/>
+        );
 
         list.setState({
             items: mockItems
