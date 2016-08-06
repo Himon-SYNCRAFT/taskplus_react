@@ -2,11 +2,19 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-table#user-list th,
-table#user-list td {
+table.data-management-cmp {
+    table-layout: fixed;
+}
+
+table.data-management-cmp thead tr th,
+table.data-management-cmp tbody tr td {
     vertical-align: middle;
 }
 
-table#user-list tr th:first-child{
+table.data-management-cmp tr th:first-child {
     width: 3%;
+}
+
+table.data-management-cmp input {
+    max-width: 100%;
 }
