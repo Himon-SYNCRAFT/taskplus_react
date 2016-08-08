@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import Layout from "./components/admin_panel/Layout.jsx";
-import UserPanel from "./components/admin_panel/UserPanel.jsx";
-import StatusPanel from "./components/admin_panel/Task/StatusPanel.jsx";
-import AttributesPanel from "./components/admin_panel/Task/AttributesPanel.jsx";
-import TypesPanel from "./components/admin_panel/Task/TypesPanel.jsx";
-import AttributesTypesPanel from "./components/admin_panel/Task/Attribute/TypesPanel.jsx";
+import Layout from "./src/components/admin_panel/Layout.jsx";
+import UserPanel from "./src/components/admin_panel/UserPanel.jsx";
+import StatusPanel from "./src/components/admin_panel/Task/StatusPanel.jsx";
+import AttributesPanel from "./src/components/admin_panel/Task/AttributesPanel.jsx";
+import TypesPanel from "./src/components/admin_panel/Task/TypesPanel.jsx";
+import AttributesTypesPanel from "./src/components/admin_panel/Task/Attribute/TypesPanel.jsx";
 
 
 ReactDOM.render(

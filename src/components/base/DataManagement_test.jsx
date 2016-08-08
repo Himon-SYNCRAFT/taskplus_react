@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactTestUtils from '../../node_modules/react-addons-test-utils/index.js';
+import ReactTestUtils from '../../../node_modules/react-addons-test-utils/index.js';
 import {DataManagementList, DataManagementItem} from './DataManagement.jsx';
-import {objectValues} from '../../lib/helpers.js'
+import {objectValues} from '../../misc/helpers.js'
 
 describe('DataManagementList', function() {
     let htmlId, columns, list, mockItems, mockFetch;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {objectValues, cloneObject} from '../../lib/helpers.js'
+import {objectValues, cloneObject} from '../../misc/helpers.js'
 
 
 export class DataManagementList extends React.Component {
@@ -154,20 +154,20 @@ export class DataManagementItem extends React.Component {
 
         items.push(<td key={items.length}>{this.props.index + 1}</td>);
 
-        this.props.columns.forEach((item, i) => {
+        this.props.columns.forEach((column, i) => {
             if (!this.isEditing()) {
                 let html = this._prepareHtml(
-                    item.inputType,
-                    data[item.dataAttributeName],
+                    column.inputType,
+                    data[column.dataAttributeName],
                     items.length
                 );
 
                 items.push(html);
             } else {
                 let htmlInput = this._prepareHtmlInput(
-                    item.inputType,
-                    data[item.dataAttributeName],
-                    item.dataAttributeName,
+                    column.inputType,
+                    data[column.dataAttributeName],
+                    column.dataAttributeName,
                     this.handleChange
                 );
 
@@ -208,10 +208,15 @@ export class DataManagementItem extends React.Component {
         return items;
     }
 
-    _prepareHtmlInput(type, value, name, onChange) {
+    _prepareHtmlInput(type, value, name, onChange, options = []) {
         switch (type) {
             case 'checkbox':
                 return (<input type={type} name={name} checked={value} onChange={onChange}/>);
+                break;
+            case 'select':
+                <select name="{name}" selected={value}>
+                    {options}
+                </select>
                 break;
             default:
                 return (<input type={type} name={name} value={value} onChange={onChange}/>);
@@ -219,6 +224,7 @@ export class DataManagementItem extends React.Component {
     }
 
     _prepareHtml(type, value, key) {
+
         switch (type) {
             case 'checkbox':
                 return (<td key={key}>{value ? 'tak' : 'nie'}</td>);

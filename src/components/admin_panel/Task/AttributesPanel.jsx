@@ -17,6 +17,12 @@ export default class AttributesPanel extends React.Component {
         let columns = [
             { headerColumnName: 'Nazwa', dataAttributeName: 'name', inputType: 'text' },
             { headerColumnName: 'Id typu', dataAttributeName: 'type_id', inputType: 'number' },
+            {
+                headerColumnName: 'Typ',
+                dataAttributeName: 'type_id',
+                inputType: 'select',
+                getOptions: axios.get('http://localhost:5000/task/attributes')
+            },
         ];
 
         let htmlId = 'tasks-attributes-list';
